@@ -6,9 +6,9 @@ import Foundation
 
 public class Response {
     public var url: WCURL
-    
-    /// At leat you need to show tx in scan, you need to know txId
-    public var payload: JSONRPC_2_0.Response
+    public var result: String? { try? payload.json().string }
+
+    internal var payload: JSONRPC_2_0.Response
 
     internal var internalID: JSONRPC_2_0.IDType {
         return payload.id
